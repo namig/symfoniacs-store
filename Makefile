@@ -7,3 +7,6 @@ up:
 psalm:
 	docker-compose exec php ./vendor/bin/psalm
 .PHONY: psalm
+
+unit-test:
+	docker-compose exec php ./vendor/bin/phpunit
