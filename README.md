@@ -29,3 +29,9 @@ make up
 ```bash
 make psalm
 ```
+
+Запустить юнит тесты:
+```bash
+make unit-test
+
+```
