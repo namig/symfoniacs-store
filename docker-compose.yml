@@ -27,6 +27,7 @@ services:
     environment:
       APP_ENV: dev
       PHP_IDE_CONFIG: "serverName=docker"
+      XDEBUG_CONFIG: "client_host=172.17.0.1"
 
   postgres:
     image: postgres:13.3-alpine3.14
