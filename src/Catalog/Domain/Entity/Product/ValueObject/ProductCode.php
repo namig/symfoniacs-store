@@ -4,19 +4,36 @@ declare(strict_types=1);
 
 namespace App\Catalog\Domain\Entity\Product\ValueObject;
 
-use App\Shared\Domain\ValueObject\StringValueObject;
 use Webmozart\Assert\Assert;
 
-final class ProductCode extends StringValueObject
+final class ProductCode
 {
-    protected function validate(string $value): void
+    private string $value;
+
+    private function __construct(string $value)
     {
-        Assert::numeric($value);
-        Assert::length($value, 9);
+        $this->validate($value);
+        $this->value = $value;
     }
 
     public static function generate(): self
     {
         return new self((string)random_int(100000000, 999999999));
+    }
+
+    public static function fromValue(string $value): self
+    {
+        return new self($value);
+    }
+
+    public function value(): string
+    {
+        return $this->value;
+    }
+
+    private function validate(string $value): void
+    {
+        Assert::numeric($value);
+        Assert::length($value, 9);
     }
 }
