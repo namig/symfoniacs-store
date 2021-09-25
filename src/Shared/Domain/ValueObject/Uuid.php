@@ -11,7 +11,7 @@ class Uuid
 {
     protected string $value;
 
-    public function __construct(string $value)
+    protected function __construct(string $value)
     {
         $this->validate($value);
         $this->value = $value;
