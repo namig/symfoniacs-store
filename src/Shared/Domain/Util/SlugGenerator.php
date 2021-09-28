@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\Util;
 
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
 final class SlugGenerator
 {
     private const DEFAULT_OPTIONS = [
@@ -85,11 +87,13 @@ final class SlugGenerator
     ];
 
     private array $options;
-    
+
     public function __construct(array $options = [])
     {
-        // Merge options
-        $this->options = array_merge(self::DEFAULT_OPTIONS, $options);
+        $resolver = new OptionsResolver();
+        $resolver->setDefaults(self::DEFAULT_OPTIONS);
+
+        $this->options = $resolver->resolve($options);
     }
 
     public function generate(string $inputStr): string
