@@ -6,7 +6,7 @@ namespace App\Shared\Domain\Util;
 
 final class SlugGenerator
 {
-    private array $defaults = [
+    private const DEFAULT_OPTIONS = [
         'delimiter' => '-',
         'limit' => null,
         'lowercase' => true,
@@ -14,9 +14,7 @@ final class SlugGenerator
         'transliterate' => true
     ];
 
-    private array $options;
-
-    private array $char_map = [
+    private const CHAR_MAP = [
         // Russian
         'А' => 'A',
         'Б' => 'B',
@@ -86,10 +84,12 @@ final class SlugGenerator
         'я' => 'ya',
     ];
 
+    private array $options;
+    
     public function __construct(array $options = [])
     {
         // Merge options
-        $this->options = array_merge($this->defaults, $options);
+        $this->options = array_merge(self::DEFAULT_OPTIONS, $options);
     }
 
     public function generate(string $inputStr): string
@@ -104,7 +104,7 @@ final class SlugGenerator
 
         // Transliterate characters to ASCII
         if ($options['transliterate']) {
-            $str = str_replace(array_keys($this->char_map), $this->char_map, $str);
+            $str = str_replace(array_keys(self::CHAR_MAP), self::CHAR_MAP, $str);
         }
 
         // Replace non-alphanumeric characters with our delimiter
