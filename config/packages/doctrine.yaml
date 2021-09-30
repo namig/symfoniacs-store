@@ -17,7 +17,7 @@ doctrine:
     naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
     auto_mapping: true
     mappings:
-      Store:
+      Catalog:
         type: attribute
-        dir: '%kernel.project_dir%/src/Store/Domain/Entity'
-        prefix: 'App\Store\Domain\Entity'
+        dir: '%kernel.project_dir%/src/Catalog/Domain/Entity'
+        prefix: 'App\Catalog\Domain\Entity'
