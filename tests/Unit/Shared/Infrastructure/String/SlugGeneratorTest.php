@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Unit\Shared\Domain\Util;
+namespace Unit\Shared\Infrastructure\String;
 
-use App\Shared\Domain\Util\SlugGenerator;
+use App\Shared\Infrastructure\String\SlugGenerator;
 use PHPUnit\Framework\TestCase;
 
 final class SlugGeneratorTest extends TestCase

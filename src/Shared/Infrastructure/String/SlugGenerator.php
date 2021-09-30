@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Domain\Util;
+namespace App\Shared\Infrastructure\String;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
